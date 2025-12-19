@@ -1,0 +1,81 @@
+.footer-wrapper {
+  width: 100%;
+  background: linear-gradient(#000000, #250000); /* matches hero theme */
+  color: #ff204e; /* cyber red */
+  position: relative;
+  padding: 3.5rem 2rem 2rem;
+  overflow: hidden;
+  box-shadow: 0 -5px 25px rgba(255,0,60,0.3);
+}
+
+/* CONTENT AREA ----------------------------------------------------- */
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  position: relative;
+  z-index: 2;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* BRAND ------------------------------------------------------------- */
+.brand-section {
+  max-width: 300px;
+}
+
+.brand {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: #ff2a53;
+  text-shadow: 0 0 10px rgba(255,50,80,0.7);
+}
+
+.tagline {
+  opacity: 0.9;
+  margin-top: .5rem;
+  font-style: italic;
+  color: #ff4c74;
+}
+
+/* LINKS + CONTACT -------------------------------------------------- */
+.footer-links h3,
+.contact-section h3 {
+  font-size: 1.25rem;
+  color: #ff355a;
+  margin-bottom: .8rem;
+  text-shadow: 0 0 6px rgba(255,60,80,0.5);
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links ul li {
+  margin-bottom: .5rem;
+}
+
+.footer-links a {
+  color: #ff4a66;
+  text-decoration: none;
+  transition: 0.25s;
+}
+
+.footer-links a:hover {
+  color: #ff7891;
+  text-shadow: 0 0 10px rgba(255,70,100,0.8);
+}
+
+/* BOTTOM BAR ------------------------------------------------------- */
+.footer-bottom {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255,0,60,0.35);
+  font-size: .95rem;
+  color: #ff4c6c;
+  text-shadow: 0 0 8px rgba(255,40,60,0.4);
+}

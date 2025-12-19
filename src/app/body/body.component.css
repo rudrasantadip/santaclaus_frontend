@@ -1,0 +1,20 @@
+.body-wrapper {
+  width: 100%;
+  min-height: calc(100vh - 140px); /* leaves space for header + footer */
+  display: flex;
+  justify-content: center;
+  padding-top: 90px; /* space for header */
+  padding-bottom: 80px; /* space for footer */
+  box-sizing: border-box;
+  background: #000; /* OPTIONAL - match theme */
+}
+
+.content-area {
+  width: 100%;
+  min-height: auto;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(255,0,60,0.2);
+  background: rgba(0,0,0,0.75); /* matches your black/red theme */
+  color: #ff4969;
+}

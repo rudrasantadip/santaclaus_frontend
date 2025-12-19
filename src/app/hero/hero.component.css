@@ -1,0 +1,93 @@
+.hero-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(#000000, #240000); /* deep black → wine black */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  text-align: center;
+  color: #ff1e46; /* red neon-ish */
+  padding: 2rem;
+  font-family: "Unica One", sans-serif;
+} /* TEXT -------------------------------------------------------------- */
+
+
+.title {
+  font-size: 3.4rem;
+  font-weight: 900;
+  letter-spacing: 2.5px;
+  color: #ff244e;
+  text-shadow: 0 0 10px rgba(255, 0, 50, 0.8), 0 0 25px rgba(255, 0, 60, 0.4);
+}
+.tagline {
+  margin-top: 10px;
+  font-size: 1.6rem;
+  opacity: 0.9;
+  color: #ff335a;
+  text-shadow: 0 0 8px rgba(255, 30, 70, 0.5);
+}
+.description {
+  margin: 22px auto;
+  max-width: 650px;
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: #ff5475;
+  opacity: 0.95;
+} /* BUTTONS ------------------------------------------------------------- */
+.cta-buttons {
+  margin-top: 32px;
+  display: flex;
+  gap: 1.3rem;
+  justify-content: center;
+} /* Base Button */
+.btn {
+  border: none;
+  padding: 14px 30px;
+  font-size: 1.15rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-weight: 700;
+  box-shadow: 0 0 12px rgba(255, 0, 60, 0.4);
+} /* PRIMARY = BECOME SELLER */
+.btn.primary {
+  background: #ff1e46;
+  color: black;
+}
+.btn.primary:hover {
+  background: #ff4e6d;
+  transform: scale(1.1);
+} /* SECONDARY = VIEW PRODUCTS */
+.btn.secondary {
+  background: transparent;
+  border: 2px solid #ff1e46;
+  color: #ff1e46;
+}
+.btn.secondary:hover {
+  background: #ff1e46;
+  color: black;
+  transform: scale(1.1);
+} /* HIRE SANTA CTA (BIGGER) -------------------------------------------- */
+.hire-santa {
+  margin-top: 38px;
+}
+.btn.hire-big {
+  background: #ff002b;
+  color: black;
+  font-size: 1.45rem;
+  font-weight: 900;
+  padding: 20px 50px;
+  border-radius: 70px;
+  border: 3px solid #ff0050;
+  box-shadow: 0 0 25px rgba(255, 0, 80, 0.9), 0 0 14px rgba(255, 40, 80, 0.6);
+  transition: 0.35s ease;
+}
+.btn.hire-big:hover {
+  background: black;
+  color: #ff204e;
+  border-color: #ff1d55;
+  transform: scale(1.12) rotate(-1deg);
+  box-shadow: 0 0 35px rgba(255, 0, 100, 1);
+}

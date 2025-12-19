@@ -1,0 +1,71 @@
+.header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background: #ffffff;
+  padding: 6px;   
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.07);
+  font-family: 'Unica One', sans-serif;
+  transition: 0.3s ease;
+}
+
+/* Logo as image */
+.logo img {
+  height: 70px;           /* Change size here */
+  width: auto;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Optional hover for subtle animation */
+.logo img:hover {
+  transform: scale(1.05);
+}
+
+.nav-links {
+  display: flex;
+  gap: 40px;              /* spacing between menu items */
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 22px;
+  font-weight: 500;
+  color: #333;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: #ff2b62;
+}
+
+.cta-btn { 
+  font-family: 'Unica One', sans-serif ;
+  padding: 10px 22px;
+  border-radius: 6px;
+  border: none;
+  background: #ff2b62;
+  color: #fff;
+  font-size: 22px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.cta-btn:hover {
+  background: #d71e4e;
+}
+
+@media(max-width: 768px) {
+  .nav-links {
+    gap: 20px;
+  }
+  .header {
+    padding: 12px 30px;
+  }
+}

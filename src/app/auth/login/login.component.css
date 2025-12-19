@@ -1,0 +1,163 @@
+/* WRAPPER ---------------------------------------------------------- */
+.login-wrapper {
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(#000000, #210000);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ff1d48;
+  font-family: 'Unica One', sans-serif;
+}
+
+/* MAIN CARD -------------------------------------------------------- */
+.login-card {
+  background: rgba(0,0,0,0.85);
+  padding: 3rem 2.8rem;
+  width: 380px;
+  border-radius: 15px;
+  box-shadow: 0 0 35px rgba(255,0,60,0.25);
+  border: 2px solid rgba(255,0,60,0.35);
+  text-align: center;
+}
+
+/* HEADER TEXT ------------------------------------------------------ */
+.title {
+  font-size: 2.3rem;
+  font-weight: 900;
+  margin-bottom: .6rem;
+  color: #ff2a53;
+  text-shadow: 0 0 10px rgba(255,60,80,0.7);
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: #ff4a6d;
+  margin-bottom: 1.8rem;
+}
+
+/* INPUT FIELDS ----------------------------------------------------- */
+.input-field {
+  text-align: left;
+  margin-bottom: 1.3rem;
+}
+
+.input-field label {
+  font-size: .95rem;
+  color: #ff6a85;
+  margin-bottom: .4rem;
+  display: block;
+}
+
+.input-field input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 6px;
+  border: 2px solid #ff1d48;
+  background: transparent;
+  color: #ff506f;
+  font-size: 1.05rem;
+  outline: none;
+  transition: 0.25s;
+}
+
+/* INPUT : FOCUS ---------------------------------------------------- */
+.input-field input:focus {
+  border-color: #ff4d6f;
+  box-shadow: 0 0 10px rgba(255,0,80,0.7);
+}
+
+/* LOGIN BUTTON ----------------------------------------------------- */
+.btn.login-btn {
+  width: 100%;
+  margin-top: .8rem;
+  padding: 12px;
+  background: #ff1c44;
+  color: black;
+  border-radius: 50px;
+  font-size: 1.15rem;
+  font-weight: 800;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 0 22px rgba(255,40,80,0.6);
+}
+
+.btn.login-btn:hover {
+  background: black;
+  color: #ff2b58;
+  box-shadow: 0 0 30px rgba(255,0,100,1);
+  transform: scale(1.07);
+}
+
+/* GOOGLE SIGNIN --------------------------------------------------- */
+.google-section {
+  margin-top: 1.6rem;
+  text-align: center;
+}
+
+.google-section .or {
+  margin: 0.9rem 0;
+  font-size: 0.95rem;
+  color: #ff5a76;
+  opacity: 0.85;
+}
+
+.google-btn {
+  width: 100%;
+  background: #ffffff;
+  color: #000;
+  display: flex;
+  align-items: center;
+/* <|diff_marker|> ADD A1000 */
+  justify-content: center;
+  gap: 10px;
+  border-radius: 50px;
+  padding: 12px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  transition: 0.3s;
+  box-shadow: 0 0 12px rgba(255,40,80,0.5);
+}
+
+.google-btn img {
+  width: 22px;
+  height: 22px;
+}
+
+.google-btn:hover {
+  transform: scale(1.05);
+  background: #ff1f48;
+/* <|diff_marker|> ADD A1020 */
+  color: black;
+  box-shadow: 0 0 22px rgba(255,0,80,0.9);
+}
+
+/* LINKS ------------------------------------------------------------ */
+.links {
+  margin-top: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: .55rem;
+}
+
+.forgot,
+.signup {
+  text-decoration: none;
+}
+
+.forgot {
+  color: #ff5c7a;
+}
+/* <|diff_marker|> ADD A1040 */
+
+.signup {
+  color: #ff244c;
+  font-weight: 600;
+}
+
+.links a:hover {
+  text-shadow:0 0 10px rgba(255,60,90,0.8);
+}

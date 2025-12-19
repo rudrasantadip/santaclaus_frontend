@@ -1,0 +1,139 @@
+.product-dashboard {
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.dash-title {
+  font-size: 2.3rem;
+  font-weight: 900;
+  color: #ff4f72;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 18px rgba(255,0,80,0.8);
+}
+
+/* GRID */
+.product-grid {
+  display: grid;
+  gap: 2.2rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  padding: 10px 20px;
+}
+
+/* 🔥 THE PREMIUM PRODUCT CARD */
+.product-card {
+  position: relative;
+  background: rgba(255,0,80,0.04); /* subtle neon glass */
+  border-radius: 20px;
+  padding: 18px;
+  overflow: hidden;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,0,70,0.35);
+  box-shadow: 0px 0px 40px rgba(255,0,70,.15);
+  transition: .35s ease;
+}
+
+/* Hover Lift + Glow */
+.product-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0px 0px 55px rgba(255,0,90,.55);
+}
+
+/* IMAGE SECTION */
+.img-wrap {
+  overflow: hidden;
+  border-radius: 14px;
+}
+
+.product-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 14px;
+  transition: .5s ease;
+}
+
+/* 🔥 Zoom image on hover */
+.product-card:hover img {
+  transform: scale(1.12);
+}
+
+/* TEXT AREA */
+.info {
+  margin-top: 1rem;
+}
+
+.name {
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: #ff6d8d;
+  margin-bottom: .4rem;
+  letter-spacing: .7px;
+}
+
+/* Description: fades upward on hover */
+.desc {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #ff98b0;
+  opacity: .8;
+  margin-bottom: 1.1rem;
+  transition: .4s;
+}
+
+.product-card:hover .desc {
+  opacity: 1;
+  transform: translateY(-4px);
+}
+
+/* FOOTER PRICE BAR */
+.footer-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255,0,85,0.15);
+  padding: 10px 15px;
+  border-radius: 12px;
+  backdrop-filter: blur(4px);
+  margin-top: .7rem;
+  box-shadow: inset 0 0 20px rgba(255,0,120,0.15);
+}
+
+/* Price + Tag */
+.price {
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: #ff1d5c;
+}
+
+.category {
+  background: rgba(255,0,90,0.25);
+  padding: 5px 10px;
+  border-radius: 8px;
+  color: #ff6b92;
+  font-size: .82rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* EXPLORE BUTTON */
+.explore-btn {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 12px 0;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #ff4775, #ff184e);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: .35s ease;
+  box-shadow: 0 0 18px rgba(255,0,90,0.4);
+}
+
+/* On hover — Futuristic streak glow */
+.explore-btn:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 0 25px rgba(255,0,120,0.8), 0 0 40px rgba(255,0,40,0.5);
+  background: linear-gradient(90deg, #ff1e50, #ff66a1);
+}
