@@ -1,28 +1,49 @@
 <div class="product-dashboard">
 
-  <h2 class="dash-title">🛍 Featured Products</h2>
+  <!-- FLOATING FILTER BAR -->
+  <div class="filter-bar">
+    <span 
+    class="filter-chip" 
+    (click)="setCategory('All')"
+    [class.active]="activeCategory === 'All'"
+    >All</span>
+    <span
+      class="filter-chip"
+      *ngFor="let cat of categoryNames"
+      [class.active]="activeCategory === cat"
+      (click)="setCategory(cat)"
+    >
+      {{ cat }}
+    </span>
+  </div>
+
+  <h2 class="dash-title">Featured Products</h2>
 
   <div class="product-grid">
 
-    <!-- Loop this with *ngFor when dynamic -->
-    <div class="product-card">
+    <div
+      class="product-card"
+      *ngFor="let product of filteredProducts; let i = index"
+      [style.transform]="'translateY(' + (i % 3 === 0 ? 0 : i % 3 === 1 ? 25 : 45) + 'px)'"
+    >
       <div class="img-wrap">
-        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cHJvZHVjdHxlbnwwfHwwfHx8MA%3D%3D" alt="Product Image" />
+        <img
+          [src]="product.productImage"
+          [alt]="product.productName"
+        />
       </div>
 
       <div class="info">
-        <h3 class="name">Premium Santa Gift Hamper</h3>
-        <p class="desc">
-          Luxury selection of chocolates, cookies, marshmallows and festive goodies wrapped in velvet.
-        </p>
+        <h3 class="name">{{ product.productName }}</h3>
+        <p class="desc">{{ product.description }}</p>
       </div>
 
       <div class="footer-row">
-        <span class="price">₹1499</span>
-        <span class="category">Gift · Premium · Festive</span>
+        <span class="price">₹1400</span>
+        <span class="category">{{product.categoryName}}</span>
       </div>
 
-      <button class="explore-btn">Explore →</button>
+      <button class="explore-btn" (click)="redirect('/product/view',product.productName)">Explore</button>
     </div>
 
   </div>

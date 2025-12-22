@@ -9,6 +9,7 @@ import { Response, User } from '../dao/user';
 export class AuthService {
 
   private baseUrl:string= 'http://localhost:8080/auth';
+  private sessionUrl:string='http://localhost:8080/users'
   
   constructor(private http:HttpClient) 
   {
@@ -19,12 +20,12 @@ export class AuthService {
     return this.http.post<Response>(`${this.baseUrl}/login`,user,{withCredentials:true});
   }
 
-  test(){
-    return this.http.get('http://localhost:8080/users/protected',
-    {
-      withCredentials:true,
-      responseType:'text'
-    }
-    )
+  logout():Observable<any>{
+    return this.http.post(`${this.sessionUrl}/logout`,{},{withCredentials:true})
   }
+
+  restoreSession():Observable<Response>{
+    return this.http.get<Response>(`${this.sessionUrl}/restore/session`,{withCredentials:true});
+  }
+
 }

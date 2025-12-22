@@ -1,24 +1,35 @@
-<section class="hero-container">
+<section
+  class="hero-neo"
+  (mousemove)="onMouseMove($event)"
+>
+  <!-- PARALLAX BACKGROUND -->
+  <div class="bg-layer layer-1" [style.transform]="bg1"></div>
+  <div class="bg-layer layer-2" [style.transform]="bg2"></div>
   <div class="snow"></div>
 
-  <div class="hero-content">
-    <h1 class="title">Welcome to Santa Claus Marketplace</h1>
-    <p class="tagline">Where Christmas Spirit Meets Commerce</p>
+  <!-- LEFT CONTENT -->
+  <div class="hero-left" [style.transform]="leftTransform">
+    <h1 class="neo-title">
+      Santa Claus<br />
+      <span>Marketplace</span>
+    </h1>
 
-    <p class="description">
-      Discover a magical platform where <strong>anyone can sell</strong> their handmade wonders,
-      festive creations & unique products. Let your ideas sparkle—<strong>we also take custom projects!</strong>
+    <p class="neo-tagline">
+      Where Christmas Spirit<br />
+      <strong>Meets Commerce</strong>
     </p>
 
-    <div class="cta-buttons">
-      <button class="btn primary">Become a Seller</button>
-      <button class="btn secondary">View All Products</button>
-    </div>
+    <p class="neo-desc">
+      Sell handmade wonders, festive creations & bold ideas.
+      <br />
+      <strong>Custom Santa-powered projects welcome.</strong>
+    </p>
+  </div>
 
-    <!-- New Bigger CTA Button -->
-    <div class="hire-santa">
-      <button class="btn hire-big">Hire Santa for a Project</button>
-    </div>
-
+  <!-- FLOATING CTA ORBIT -->
+  <div class="hero-right" [style.transform]="rightTransform">
+    <button class="neo-btn seller">Become a Seller</button>
+    <button class="neo-btn browse">View Products</button>
+    <button class="neo-btn santa">Hire Santa</button>
   </div>
 </section>

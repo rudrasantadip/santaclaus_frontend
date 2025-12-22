@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthstateService } from '../services/authstate.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -11,15 +12,14 @@ export class HeaderComponent implements OnInit {
 
 constructor(
   private router:Router,
-  private authState:AuthstateService
+  private authState:AuthstateService,
+  private authService:AuthService
 ) {
   
 }
 ngOnInit(): void {
   
 }
-
-
 
 redirectTo(url:string)
 {
@@ -31,7 +31,12 @@ isLoggedin():boolean{
 }
 
 logout(){
-
+  this.authService.logout().subscribe(
+    ()=>{
+      this.authState.setLoggedIn(false)
+      this.router.navigate(['/auth/login'])
+    }
+  )
 }
 
 }

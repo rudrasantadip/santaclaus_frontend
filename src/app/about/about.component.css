@@ -1,0 +1,233 @@
+/* ===============================
+   STAGE
+================================ */
+.about-stage {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #160005, #000);
+  padding: 6rem 6%;
+  font-family: "Unica One", sans-serif;
+  color: #ffd5df;
+}
+
+/* ===============================
+   GRID STRUCTURE
+================================ */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto auto auto;
+  gap: 4rem;
+  align-items: start;
+}
+
+/* ===============================
+   TITLE
+================================ */
+.santa-name {
+  grid-column: 1 / span 3;
+  font-size: 5rem;
+  letter-spacing: 6px;
+  color: #ff1e46;
+  text-shadow: 0 0 40px rgba(255,0,80,.9);
+  transform: rotate(-2deg);
+}
+
+/* ===============================
+   STORY CARDS
+================================ */
+.story-card {
+  background: rgba(255,0,80,.08);
+  padding: 24px;
+  border-radius: 22px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 35px rgba(255,0,80,.35);
+  animation: floatSlow 7s ease-in-out infinite;
+}
+
+.story-card h3 {
+  color: #ff4b72;
+  margin-bottom: 10px;
+}
+
+.story-card p {
+  color: #ff9fb3;
+  line-height: 1.6;
+}
+
+.origin {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.modern {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+
+
+/* ===============================
+   SANTA IMAGE (REPLACES SILHOUETTE)
+================================ */
+.santa-image-wrap {
+  grid-column: 2;
+  grid-row: 2;
+  width: 260px;
+  height: 340px;
+  margin: auto;
+  border-radius: 50% 50% 40% 40%;
+  overflow: hidden;
+  background: radial-gradient(circle, #ff1e46, #000);
+  box-shadow:
+    0 0 40px rgba(255,0,80,.7),
+    0 0 80px rgba(255,0,80,.4);
+  animation: breathe 5s ease-in-out infinite;
+}
+
+.santa-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: contrast(1.05) brightness(0.95);
+}
+
+/* Glow halo */
+.santa-image-wrap::after {
+  content: "";
+  position: absolute;
+  inset: -30px;
+  background: radial-gradient(circle, rgba(255,0,80,.25), transparent 70%);
+  z-index: -1;
+}
+
+/* Animation */
+@keyframes breathe {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+}
+
+
+
+
+
+
+/* ANIMATION */
+@keyframes breathe {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+}
+
+/* ===============================
+   QUOTE ORB
+================================ */
+.quote-orb {
+  grid-column: 2;
+  grid-row: 3;
+  width: 220px;
+  height: 220px;
+  margin: auto;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ff1e46, #000);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 30px;
+  font-weight: 700;
+  box-shadow: 0 0 60px rgba(255,0,100,1);
+  animation: pulse 5s infinite;
+}
+
+/* ===============================
+   TIMELINE
+================================ */
+.timeline {
+  grid-column: 1 / span 3;
+  grid-row: 4;
+  position: relative;
+  margin-top: 3rem;
+  padding-left: 50%;
+}
+
+.timeline h2 {
+  text-align: center;
+  color: #ff4b72;
+  margin-bottom: 3rem;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 80px;
+  bottom: 0;
+  width: 2px;
+  background: #ff1e46;
+  box-shadow: 0 0 20px rgba(255,0,80,.8);
+}
+
+.timeline-item {
+  width: 45%;
+  margin-bottom: 2.5rem;
+  padding: 18px;
+  background: rgba(255,0,80,.08);
+  border-radius: 18px;
+  box-shadow: 0 0 25px rgba(255,0,80,.35);
+}
+
+.timeline-item span {
+  font-weight: bold;
+  color: #ff4b72;
+}
+
+.timeline-item.left {
+  margin-left: -50%;
+}
+
+.timeline-item.right {
+  margin-left: 5%;
+}
+
+/* ===============================
+   ANIMATIONS
+================================ */
+@keyframes floatSlow {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+
+@keyframes pulse {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes breathe {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+}
+
+/* ===============================
+   MOBILE
+================================ */
+@media (max-width: 900px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline {
+    padding-left: 0;
+  }
+
+  .timeline::before {
+    display: none;
+  }
+
+  .timeline-item {
+    width: 100%;
+    margin-left: 0 !important;
+  }
+
+  .santa-name {
+    text-align: center;
+  }
+}

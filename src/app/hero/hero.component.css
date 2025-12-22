@@ -1,93 +1,122 @@
-.hero-container {
+:host {
+  display: block;
+}
+
+/* ROOT */
+.hero-neo {
   position: relative;
-  width: 100%;
   height: 100vh;
-  background: linear-gradient(#000000, #240000); /* deep black → wine black */
-  display: flex;
-  justify-content: center;
-  align-items: center;
   overflow: hidden;
-  text-align: center;
-  color: #ff1e46; /* red neon-ish */
-  padding: 2rem;
+  background: radial-gradient(circle at top, #1a0005, #000);
   font-family: "Unica One", sans-serif;
-} /* TEXT -------------------------------------------------------------- */
-
-
-.title {
-  font-size: 3.4rem;
-  font-weight: 900;
-  letter-spacing: 2.5px;
-  color: #ff244e;
-  text-shadow: 0 0 10px rgba(255, 0, 50, 0.8), 0 0 25px rgba(255, 0, 60, 0.4);
 }
-.tagline {
-  margin-top: 10px;
+
+/* PARALLAX LAYERS */
+.bg-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.layer-1 {
+  background: radial-gradient(circle at 20% 30%, #400010, transparent 60%);
+  animation: floatSlow 28s linear infinite;
+}
+
+.layer-2 {
+  /* background: radial-gradient(circle at 80% 70%, #600015, transparent 55%); */
+  animation: floatReverse 45s linear infinite;
+}
+
+@keyframes floatSlow {
+  to { transform: translateY(-60px); }
+}
+@keyframes floatReverse {
+  to { transform: translateY(80px); }
+}
+
+/* LEFT CONTENT (DIAGONAL) */
+.hero-left {
+  position: absolute;
+  left: 6%;
+  top: 18%;
+  max-width: 480px;
+}
+
+.neo-title {
+  font-size: 4rem;
+  line-height: 1;
+  color: #ff204e;
+  text-shadow: 0 0 25px rgba(255, 0, 80, 0.9);
+}
+
+.neo-title span {
+  font-size: 3.2rem;
+  opacity: 0.85;
+}
+
+.neo-tagline {
+  margin-top: 20px;
   font-size: 1.6rem;
-  opacity: 0.9;
-  color: #ff335a;
-  text-shadow: 0 0 8px rgba(255, 30, 70, 0.5);
+  color: #ff4b6d;
 }
-.description {
-  margin: 22px auto;
-  max-width: 650px;
-  font-size: 1.2rem;
-  line-height: 1.7;
-  color: #ff5475;
-  opacity: 0.95;
-} /* BUTTONS ------------------------------------------------------------- */
-.cta-buttons {
-  margin-top: 32px;
-  display: flex;
-  gap: 1.3rem;
-  justify-content: center;
-} /* Base Button */
-.btn {
-  border: none;
-  padding: 14px 30px;
+
+.neo-desc {
+  margin-top: 24px;
   font-size: 1.15rem;
-  border-radius: 50px;
+  line-height: 1.6;
+  color: #ff6b85;
+}
+
+/* RIGHT FLOATING CTA */
+.hero-right {
+  position: absolute;
+  right: 8%;
+  top: 22%;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* BUTTONS */
+.neo-btn {
+  padding: 18px 44px;
+  border-radius: 80px;
+  font-size: 1.25rem;
+  font-weight: 900;
   cursor: pointer;
-  transition: 0.3s ease;
-  font-weight: 700;
-  box-shadow: 0 0 12px rgba(255, 0, 60, 0.4);
-} /* PRIMARY = BECOME SELLER */
-.btn.primary {
+  border: none;
+  transition: 0.35s ease;
+  animation: drift 6s ease-in-out infinite;
+}
+
+.neo-btn.seller {
   background: #ff1e46;
   color: black;
+  box-shadow: 0 0 22px rgba(255, 0, 80, 0.7);
 }
-.btn.primary:hover {
-  background: #ff4e6d;
-  transform: scale(1.1);
-} /* SECONDARY = VIEW PRODUCTS */
-.btn.secondary {
+
+.neo-btn.browse {
   background: transparent;
   border: 2px solid #ff1e46;
   color: #ff1e46;
 }
-.btn.secondary:hover {
-  background: #ff1e46;
-  color: black;
-  transform: scale(1.1);
-} /* HIRE SANTA CTA (BIGGER) -------------------------------------------- */
-.hire-santa {
-  margin-top: 38px;
-}
-.btn.hire-big {
+
+.neo-btn.santa {
   background: #ff002b;
   color: black;
-  font-size: 1.45rem;
-  font-weight: 900;
-  padding: 20px 50px;
-  border-radius: 70px;
-  border: 3px solid #ff0050;
-  box-shadow: 0 0 25px rgba(255, 0, 80, 0.9), 0 0 14px rgba(255, 40, 80, 0.6);
-  transition: 0.35s ease;
-}
-.btn.hire-big:hover {
-  background: black;
-  color: #ff204e;
-  border-color: #ff1d55;
-  transform: scale(1.12) rotate(-1deg);
+  font-size: 1.5rem;
+  animation-delay: 1.5s;
   box-shadow: 0 0 35px rgba(255, 0, 100, 1);
+}
+
+.neo-btn:hover {
+  transform: scale(1.12) rotate(-1deg);
+  background: black;
+  color: #ff1e46;
+}
+
+/* FLOAT MOTION */
+@keyframes drift {
+  50% { transform: translateY(-14px); }
 }

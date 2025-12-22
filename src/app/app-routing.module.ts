@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HeroComponent } from './hero/hero.component';
+import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
   {
@@ -14,7 +15,10 @@ const routes: Routes = [
   },
   {
     path:'product',loadChildren:()=> import('./product/product.module').then(m=>m.ProductModule)
-  }
+  },
+  {
+    path:'about',component:AboutComponent
+  },
 
 ];
 
