@@ -1,50 +1,52 @@
-<div class="register-wrapper">
+<div class="auth-stage">
 
-  <div class="register-card">
+  <div class="auth-art">
+    <div class="ghost-text" aria-hidden="true">Noel</div>
+    <div class="bauble blush" style="--size:104px; right:12%; top:10%;"></div>
+    <div class="bauble copper" style="--size:64px; right:44%; top:3%; animation-delay:-3s;"></div>
+    <h1 class="display">Create your account</h1>
+  </div>
 
-    <h2 class="title">Create Your Account</h2>
-    <p class="subtitle">Join the Santa Marketplace Family</p>
-
+  <div class="auth-form-side">
     <form class="register-grid">
 
-      <div class="input-field">
-        <label>Full Name</label>
-        <input type="text" placeholder="Enter your full name" />
+      <div class="field">
+        <label for="fullname">Full Name</label>
+        <input id="fullname" type="text" placeholder="Enter your full name" autocomplete="name" />
       </div>
 
-      <div class="input-field">
-        <label>Username</label>
-        <input type="text" placeholder="Choose a username" />
+      <div class="field">
+        <label for="username">Username</label>
+        <input id="username" type="text" placeholder="Choose a username" autocomplete="username" />
       </div>
 
-      <div class="input-field">
-        <label>Email</label>
-        <input type="email" placeholder="Enter your email" />
+      <div class="field">
+        <label for="email">Email</label>
+        <input id="email" type="email" placeholder="Enter your email" autocomplete="email" />
       </div>
 
-      <div class="input-field">
-        <label>Password</label>
-        <input type="password" placeholder="Create a password" />
+      <div class="field">
+        <label for="password">Password</label>
+        <input id="password" type="password" placeholder="Create a password" autocomplete="new-password" />
       </div>
 
-      <div class="input-field full">
-        <label>Confirm Password</label>
-        <input type="password" placeholder="Re-enter password" />
+      <div class="field full">
+        <label for="confirm">Confirm Password</label>
+        <input id="confirm" type="password" placeholder="Re-enter password" autocomplete="new-password" />
       </div>
 
-      <button class="btn register-btn full">Register</button>
+      <button class="btn btn-coral full">Register</button>
 
-      <div class="google-section full">
-        <p class="or">or</p>
-        <button class="google-btn">
-          <img src="assets/images/google.svg" alt="Google Logo" />
-          Sign Up with Google
-        </button>
-      </div>
+      <div class="auth-divider full">or</div>
 
-      <div class="links full">
-        <p>Already have an account?</p>
-        <a class="login" routerLink="/auth/login">Login here</a>
+      <button type="button" class="google-btn full">
+        <img src="assets/images/google.svg" alt="" />
+        Sign Up with Google
+      </button>
+
+      <div class="auth-links full">
+        <span>Already have an account?</span>
+        <a routerLink="/auth/login">Login here</a>
       </div>
 
     </form>

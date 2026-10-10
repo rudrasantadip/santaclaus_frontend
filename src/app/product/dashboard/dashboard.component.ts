@@ -61,7 +61,28 @@ export class DashboardComponent implements OnInit {
   );
 }
 
-  redirect(url:String,productName:string){
+calculateDiscount(price:number,percentage:number){
+  console.log(price-((percentage/100)*price));
+  return (price-((percentage/100)*price))
+}
+
+
+tilt(e: MouseEvent) {
+  const el = e.currentTarget as HTMLElement;
+  const r = el.getBoundingClientRect();
+  const x = (e.clientX - r.left) / r.width - 0.5;
+  const y = (e.clientY - r.top) / r.height - 0.5;
+  el.style.setProperty('--ry', `${(x * 14).toFixed(2)}deg`);
+  el.style.setProperty('--rx', `${(-y * 14).toFixed(2)}deg`);
+}
+
+untilt(e: MouseEvent) {
+  const el = e.currentTarget as HTMLElement;
+  el.style.setProperty('--ry', '0deg');
+  el.style.setProperty('--rx', '0deg');
+}
+
+redirect(url:String,productName:string){
       this.router.navigate([url],{
         queryParams:{
           product:productName

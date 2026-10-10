@@ -1,50 +1,40 @@
 <div class="product-dashboard">
 
-  <!-- FLOATING FILTER BAR -->
-  <div class="filter-bar">
-    <span 
-    class="filter-chip" 
-    (click)="setCategory('All')"
-    [class.active]="activeCategory === 'All'"
-    >All</span>
-    <span
-      class="filter-chip"
-      *ngFor="let cat of categoryNames"
-      [class.active]="activeCategory === cat"
-      (click)="setCategory(cat)"
-    >
-      {{ cat }}
-    </span>
-  </div>
+  <h2 class="dash-title display">Featured Products</h2>
 
-  <h2 class="dash-title">Featured Products</h2>
+  <div class="filter-bar" role="tablist" aria-label="Product categories">
+    <button type="button" class="filter-chip" role="tab" (click)="setCategory('All')" [class.active]="activeCategory === 'All'" [attr.aria-selected]="activeCategory === 'All'">All</button>
+    <button type="button" class="filter-chip" role="tab" *ngFor="let cat of categoryNames" [class.active]="activeCategory === cat" [attr.aria-selected]="activeCategory === cat" (click)="setCategory(cat)">
+      {{ cat }}
+    </button>
+  </div>
 
   <div class="product-grid">
 
-    <div
+    <article
       class="product-card"
-      *ngFor="let product of filteredProducts; let i = index"
-      [style.transform]="'translateY(' + (i % 3 === 0 ? 0 : i % 3 === 1 ? 25 : 45) + 'px)'"
+      *ngFor="let product of filteredProducts"
+      (mousemove)="tilt($event)"
+      (mouseleave)="untilt($event)"
     >
       <div class="img-wrap">
-        <img
-          [src]="product.productImage"
-          [alt]="product.productName"
-        />
+        <img [src]="product.productImage" [alt]="product.productName" />
       </div>
 
       <div class="info">
-        <h3 class="name">{{ product.productName }}</h3>
+        <h3 class="name display">{{ product.productName }}</h3>
         <p class="desc">{{ product.description }}</p>
       </div>
 
       <div class="footer-row">
-        <span class="price">₹1400</span>
+        <span class="price">₹{{product.price}}</span>
         <span class="category">{{product.categoryName}}</span>
       </div>
 
-      <button class="explore-btn" (click)="redirect('/product/view',product.productName)">Explore</button>
-    </div>
+      <button class="btn btn-coral explore-btn" (click)="redirect('/product/view',product.productName)">Explore</button>
+    </article>
 
   </div>
+
+  <p class="empty" *ngIf="filteredProducts.length === 0">No products in this category yet.</p>
 </div>

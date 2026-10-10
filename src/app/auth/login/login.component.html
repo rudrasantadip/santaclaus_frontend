@@ -1,39 +1,40 @@
-<div class="login-wrapper">
+<div class="auth-stage">
 
-  <div class="login-card">
+  <div class="auth-art">
+    <div class="ghost-text" aria-hidden="true">Noel</div>
+    <div class="bauble copper" style="--size:110px; right:14%; top:12%;"></div>
+    <div class="bauble wine" style="--size:70px; right:46%; top:4%; animation-delay:-3s;"></div>
+    <h1 class="display">Welcome</h1>
+  </div>
 
-    <h2 class="title">Welcome</h2>
-    <p class="subtitle">Enter your credentials to continue</p>
+  <div class="auth-form-side">
+    <form #loginForm="ngForm">
 
-    <form #loginForm="ngForm" >
-
-      <div class="input-field">
-        <label>Username</label>
-        <input type="text" name="username" [(ngModel)]="user.username" placeholder="Enter your username" />
+      <div class="field">
+        <label for="username">Username</label>
+        <input id="username" type="text" name="username" [(ngModel)]="user.username" placeholder="Enter your username" autocomplete="username" />
       </div>
 
-      <div class="input-field">
-        <label>Password</label>
-        <input type="password" name="password" [(ngModel)]="user.password" placeholder="Enter your password" />
+      <div class="field">
+        <label for="password">Password</label>
+        <input id="password" type="password" name="password" [(ngModel)]="user.password" placeholder="Enter your password" autocomplete="current-password" />
       </div>
 
-      <button class="btn login-btn" [disabled]="loading" (click)="login()">
+      <button class="btn btn-coral" [disabled]="loading" (click)="login()">
         <span *ngIf="!loading">Login</span>
         <span *ngIf="loading">Loading</span>
       </button>
 
-      <!-- 🔻 NEW Google Login -->
-      <div class="google-section">
-        <p class="or">or</p>
-        <button class="google-btn">
-          <img src="assets/images/google.svg" alt="Google Logo" />
-          Sign in with Google
-        </button>
-      </div>
+      <div class="auth-divider">or</div>
 
-      <div class="links">
-        <a class="forgot" href="#">Forgot Password?</a>
-        <a class="signup" routerLink="/auth/register">Create a new account</a>
+      <button type="button" class="google-btn">
+        <img src="assets/images/google.svg" alt="" />
+        Sign in with Google
+      </button>
+
+      <div class="auth-links">
+        <a href="#">Forgot Password?</a>
+        <a routerLink="/auth/register">Create a new account</a>
       </div>
 
     </form>

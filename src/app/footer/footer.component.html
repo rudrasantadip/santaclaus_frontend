@@ -1,32 +1,30 @@
 <footer class="footer-wrapper">
-  <div class="snow-layer"></div>
+  <div class="snow-layer" aria-hidden="true">
+    <span class="flake" *ngFor="let f of flakes" [style.--x]="f.x" [style.--s]="f.s" [style.--o]="f.o" [style.--b]="f.b" [style.--d]="f.d" [style.--delay]="f.delay" [style.--drift]="f.drift"></span>
+  </div>
 
   <div class="footer-content">
-
-    <div class="brand-section">
-      <h2 class="brand">Santa Claus Market</h2>
-      <p class="tagline">Bringing joy, commerce & Christmas spirit together.</p>
-    </div>
+    <h2 class="brand display">Santa Claus<br>Marketplace</h2>
 
     <div class="footer-links">
       <h3>Explore</h3>
       <ul>
-        <li><a routerLink="/">Home</a></li>
-        <li><a routerLink="/products">Products</a></li>
-        <li><a routerLink="/seller">Become a Seller</a></li>
-        <li><a routerLink="/services">Hire for Projects</a></li>
+        <li><a routerLink="/home">Home</a></li>
+        <li><a routerLink="/product">Products</a></li>
+        <li><a routerLink="/auth/register">Become a Seller</a></li>
+        <li><a routerLink="/about">Hire for Projects</a></li>
       </ul>
     </div>
 
     <div class="contact-section">
       <h3>Contact</h3>
-      <p>Email: support@santamarket.com</p>
-      <p>Need help? We respond fast 🎄</p>
+      <a href="mailto:support@santamarket.com">support@santamarket.com</a>
     </div>
-
   </div>
 
+  <div class="ghost-floor ghost-text" aria-hidden="true">Santa Claus</div>
+
   <div class="footer-bottom">
-    <p>❄ © 2025 Santa Claus Marketplace — All Rights Reserved ❄</p>
+    <p>&copy; 2025 Santa Claus Marketplace. All rights reserved.</p>
   </div>
 </footer>

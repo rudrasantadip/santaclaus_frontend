@@ -1,6 +1,228 @@
-/* You can add global styles to this file, and also import other style files */
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* ============ DESIGN TOKENS ============ */
+:root {
+  --wine: #5c0a2f;
+  --wine-deep: #3e0620;
+  --cranberry: #9b1c47;
+  --blush: #fde3d9;
+  --blush-2: #fad0c1;
+  --peach: #f4b49e;
+  --coral: #ff6a4b;
+  --coral-deep: #e4492f;
+  --ember: #1c1512;
+  --ember-2: #2b201b;
+  --copper: #c98b4e;
+  --copper-glow: #f2bc85;
+
+  --display: 'Fraunces', 'Georgia', serif;
+  --body: 'Outfit', 'Helvetica Neue', Arial, sans-serif;
+
+  --rim: 0 0 0 1px rgba(242, 188, 133, 0.35), 0 0 28px rgba(201, 139, 78, 0.22);
+  --lift: 0 30px 60px -20px rgba(62, 6, 32, 0.55);
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--body);
+  font-weight: 300;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--wine);
+  background: var(--blush);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; cursor: pointer; border: 0; background: none; }
+
+:focus-visible { outline: 3px solid var(--coral); outline-offset: 3px; }
+
+/* ============ TYPE ============ */
+.display {
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 850;
+  font-optical-sizing: auto;
+  line-height: 0.92;
+  letter-spacing: -0.025em;
+}
+
+.ghost-text {
+  font-family: var(--body);
+  font-weight: 200;
+  line-height: 0.8;
+  color: rgba(242, 188, 133, 0.13);
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ============ BUTTONS ============ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 1rem 2rem;
+  border-radius: 999px;
+  font-weight: 500;
+  font-size: 1.05rem;
+  letter-spacing: 0.01em;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+.btn:hover { transform: translateY(-3px); }
+.btn:active { transform: translateY(0); }
+.btn:disabled { opacity: 0.6; cursor: wait; transform: none; }
+
+.btn-coral { background: var(--coral); color: var(--ember); box-shadow: 0 14px 30px -10px rgba(255, 106, 75, 0.75); }
+.btn-coral:hover { background: #ff7d61; }
+.btn-blush { background: var(--blush); color: var(--wine); box-shadow: 0 14px 30px -12px rgba(0, 0, 0, 0.5); }
+.btn-wine { background: var(--wine); color: var(--blush); box-shadow: 0 14px 30px -12px rgba(62, 6, 32, 0.8); }
+.btn-ghost { box-shadow: inset 0 0 0 1.5px currentColor; }
+.btn-ghost:hover { background: rgba(253, 227, 217, 0.12); }
+
+/* ============ BAUBLES (3D ornaments) ============ */
+.bauble {
+  --size: 90px;
+  --c1: var(--coral);
+  --c2: var(--wine);
+  position: absolute;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 30% 24%, rgba(255, 255, 255, 0.85) 0, rgba(255, 255, 255, 0) 22%),
+    radial-gradient(circle at 70% 85%, rgba(0, 0, 0, 0.45) 0, rgba(0, 0, 0, 0) 55%),
+    radial-gradient(circle at 40% 35%, var(--c1), var(--c2) 78%);
+  box-shadow: 0 24px 40px -14px rgba(28, 21, 18, 0.65), inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+.bauble::before {
+  content: '';
+  position: absolute;
+  top: calc(var(--size) * -0.1);
+  left: 50%;
+  width: calc(var(--size) * 0.26);
+  height: calc(var(--size) * 0.14);
+  transform: translateX(-50%);
+  border-radius: 3px 3px 0 0;
+  background: linear-gradient(90deg, #8c5a2b, var(--copper-glow), #8c5a2b);
+}
+.bauble::after {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  width: 1px;
+  height: 100vh;
+  background: rgba(242, 188, 133, 0.45);
+}
+.bauble.copper { --c1: var(--copper-glow); --c2: #6d3f17; }
+.bauble.wine { --c1: var(--cranberry); --c2: var(--wine-deep); }
+.bauble.blush { --c1: #fff2ec; --c2: var(--peach); }
+
+@keyframes sway {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(-2deg); }
+  50% { transform: translate3d(0, 10px, 0) rotate(2deg); }
+}
+
+/* ============ SNOW ============ */
+.flake {
+  position: absolute;
+  top: -20px;
+  left: var(--x);
+  width: var(--s);
+  height: var(--s);
+  border-radius: 50%;
+  background: #fff;
+  opacity: var(--o);
+  filter: blur(var(--b));
+  animation: fall var(--d) linear var(--delay) infinite;
+  pointer-events: none;
+}
+@keyframes fall {
+  to { transform: translate3d(var(--drift), 110vh, 0); }
+}
+
+/* ============ FORM FIELDS ============ */
+.field { display: flex; flex-direction: column; gap: 0.4rem; }
+.field label { font-size: 0.95rem; font-weight: 400; color: var(--peach); }
+.field input {
+  width: 100%;
+  padding: 0.9rem 0;
+  font: inherit;
+  font-size: 1.1rem;
+  color: var(--blush);
+  background: transparent;
+  border: 0;
+  border-bottom: 1.5px solid rgba(244, 180, 158, 0.45);
+  border-radius: 0;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.field input::placeholder { color: rgba(244, 180, 158, 0.45); }
+.field input:focus { outline: none; border-color: var(--copper-glow); box-shadow: 0 10px 14px -12px var(--copper-glow); }
+
+/* ============ AUTH SHELL (login + register) ============ */
+.auth-stage {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 680px;
+  border-radius: 44px;
+  overflow: hidden;
+  box-shadow: var(--lift);
+  perspective: 1800px;
+}
+.auth-art {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding: clamp(2rem, 4vw, 4rem);
+  overflow: hidden;
+  color: var(--blush);
+  background:
+    radial-gradient(ellipse 70% 60% at 85% 10%, rgba(255, 106, 75, 0.95), transparent 70%),
+    linear-gradient(160deg, var(--cranberry), var(--wine) 70%);
+}
+.auth-art h1 {
+  position: relative;
+  z-index: 2;
+  font-size: clamp(3.4rem, 8vw, 8.5rem);
+}
+.auth-art .ghost-text { position: absolute; top: 4%; left: -3%; font-size: clamp(8rem, 18vw, 16rem); }
+.auth-art .bauble { z-index: 1; animation: sway 6s ease-in-out infinite; }
+.auth-form-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(2rem, 4vw, 4.5rem);
+  color: var(--blush);
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(201, 139, 78, 0.25), transparent 70%),
+    var(--ember);
+  box-shadow: inset 1px 0 0 rgba(242, 188, 133, 0.35);
+}
+.auth-form-side form { display: flex; flex-direction: column; gap: 1.6rem; }
+.auth-divider { display: flex; align-items: center; gap: 1rem; color: var(--peach); font-size: 0.95rem; }
+.auth-divider::before, .auth-divider::after { content: ''; flex: 1; height: 1px; background: rgba(244, 180, 158, 0.3); }
+.google-btn {
+  display: flex; align-items: center; justify-content: center; gap: 0.8rem;
+  padding: 0.95rem 1.5rem; border-radius: 999px;
+  background: var(--blush); color: var(--ember); font-weight: 500;
+  transition: transform 0.25s ease;
+}
+.google-btn:hover { transform: translateY(-3px); }
+.google-btn img { width: 22px; height: 22px; }
+.auth-links { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.8rem 1.5rem; color: var(--peach); }
+.auth-links a { color: var(--copper-glow); font-weight: 400; border-bottom: 1px solid rgba(242, 188, 133, 0.4); }
+.auth-links a:hover { border-color: var(--copper-glow); }
+
+@media (max-width: 860px) {
+  .auth-stage { grid-template-columns: 1fr; border-radius: 32px; }
+  .auth-art { min-height: 300px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }

@@ -1,35 +1,47 @@
-<section
-  class="hero-neo"
-  (mousemove)="onMouseMove($event)"
->
-  <!-- PARALLAX BACKGROUND -->
-  <div class="bg-layer layer-1" [style.transform]="bg1"></div>
-  <div class="bg-layer layer-2" [style.transform]="bg2"></div>
-  <div class="snow"></div>
+<section class="hero" (mousemove)="onMouseMove($event)" (mouseleave)="onMouseLeave()">
+  <div class="flow flow-a" aria-hidden="true"></div>
+  <div class="flow flow-b" aria-hidden="true"></div>
 
-  <!-- LEFT CONTENT -->
-  <div class="hero-left" [style.transform]="leftTransform">
-    <h1 class="neo-title">
-      Santa Claus<br />
-      <span>Marketplace</span>
-    </h1>
-
-    <p class="neo-tagline">
-      Where Christmas Spirit<br />
-      <strong>Meets Commerce</strong>
-    </p>
-
-    <p class="neo-desc">
-      Sell handmade wonders, festive creations & bold ideas.
-      <br />
-      <strong>Custom Santa-powered projects welcome.</strong>
-    </p>
+  <div class="snow" aria-hidden="true">
+    <span class="flake" *ngFor="let f of flakes" [style.--x]="f.x" [style.--s]="f.s" [style.--o]="f.o" [style.--b]="f.b" [style.--d]="f.d" [style.--delay]="f.delay" [style.--drift]="f.drift"></span>
   </div>
 
-  <!-- FLOATING CTA ORBIT -->
-  <div class="hero-right" [style.transform]="rightTransform">
-    <button class="neo-btn seller">Become a Seller</button>
-    <button class="neo-btn browse">View Products</button>
-    <button class="neo-btn santa">Hire Santa</button>
+  <div class="ghost-text ghost-word" aria-hidden="true" [style.transform]="ghostTransform">Noel</div>
+
+  <div class="hero-left" [style.transform]="leftTransform">
+    <h1 class="display title">Santa Claus<br>Marketplace</h1>
+
+    <p class="desc">Sell handmade wonders, festive creations and bold ideas. Custom Santa-powered projects welcome.</p>
+
+    <div class="actions">
+      <a class="btn btn-coral" routerLink="/auth/register">Become a Seller</a>
+      <a class="btn btn-blush" routerLink="/product">View Products</a>
+      <a class="btn btn-ghost" routerLink="/about">Hire Santa</a>
+    </div>
+  </div>
+
+  <div class="hero-right" aria-hidden="true">
+    <div class="scene" [style.transform]="sceneTransform">
+      <div class="gift">
+        <div class="pedestal"></div>
+        <!-- Lid -->
+        <div class="cuboid lid" style="--w:250px; --h:58px; --d:250px; --y:-114px">
+          <div class="f front"></div><div class="f back"></div><div class="f left"></div><div class="f right"></div><div class="f top"></div><div class="f bottom"></div>
+          <div class="bow">
+            <div class="plane"><i class="loop l"></i><i class="loop r"></i></div>
+            <div class="plane p2"><i class="loop l"></i><i class="loop r"></i></div>
+            <i class="knot"></i>
+          </div>
+        </div>
+        <!-- Base -->
+        <div class="cuboid base" style="--w:224px; --h:176px; --d:224px; --y:0px">
+          <div class="f front"></div><div class="f back"></div><div class="f left"></div><div class="f right"></div><div class="f top"></div><div class="f bottom"></div>
+        </div>
+      </div>
+
+      <div class="bauble copper b1" [style.transform]="'translate3d(' + mx * -46 + 'px,' + my * -30 + 'px, 140px)'"></div>
+      <div class="bauble blush b2" [style.transform]="'translate3d(' + mx * 60 + 'px,' + my * 40 + 'px, 220px)'"></div>
+      <div class="bauble wine b3" [style.transform]="'translate3d(' + mx * -30 + 'px,' + my * 24 + 'px, -60px)'"></div>
+    </div>
   </div>
 </section>
